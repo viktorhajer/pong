@@ -1,0 +1,30 @@
+<div class="container" [class.is-game-over]="isGameOver">
+  <div class="side">
+    <div class="branch" *ngFor="let branch of game.left"
+         [class.disabled]="!canSelect(1, branch)" [class.selected]="isSelected(branch)"
+         (click)="selectBranch(1, branch)">
+      <div class="place place_{{place.color}}" *ngFor="let place of branch.places">
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+  <div class="side">
+    <div class="branch" *ngFor="let branch of game.right"
+         [class.disabled]="!canSelect(2, branch)" [class.selected]="isSelected(branch)"
+         (click)="selectBranch(2, branch)">
+      <div class="place place_{{place.color}}" *ngFor="let place of getReverse(branch.places)">
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="buttons">
+    <div class="button" (click)="easy()">2</div>
+    <div class="button" (click)="medium()">3</div>
+    <div class="button" (click)="hard()">4</div>
+  </div>
+  <div class="counter">{{ game.numberOfSteps }}</div>
+</div>
+
+<div class="game-over-title" *ngIf="isGameOver">Game Over</div>

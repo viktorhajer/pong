@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button {
+  width: fit-content;
+}
+
+h2 {
+  border-bottom: 1px dotted #aaa;
+  margin-top: 20px;
+}
+
+.mat-typography h3 {
+  margin: 20px 0 0 0;
+  padding: 0;
+}
+
+.actions-bar {
+  margin-top: 20px;
+  padding: 10px 10px;
+  background: #ededed;
+  text-align: right;
+  border-top: 1px solid #c3c3c3;
+
+  button {
+    margin-left: 10px;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 30
+}
+
+.chapter_content {
+  span {
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-left: 10px;
+  }
+}
+
+.panel-backdrop {
+  background-color: rgb(0 0 0 / 24%);
+  backdrop-filter: blur(4px);
+}

@@ -1,0 +1,155 @@
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  border: 10px solid #eaeaea;
+  justify-content: space-between;
+  max-width: 720px;
+  background: #f9f9f9;
+  transition: all 200ms;
+
+  &.is-game-over {
+    filter: blur(10px) brightness(0.8);
+  }
+
+  .side {
+    display: flex;
+    flex-flow: column nowrap;
+    background: #ffffff;
+
+    .branch {
+      display: flex;
+      flex-flow: row nowrap;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 400ms;
+
+      &.disabled {
+        cursor: auto;
+        opacity: 0.3;
+
+        &.selected {
+          opacity: 1;
+          background: #c3c3c3;
+          cursor: pointer;
+        }
+      }
+
+      .place {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 50%;
+        background: #efefef;
+        box-shadow: inset 7px 5px 5px rgb(0 0 0 / 21%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .ball {
+          border-radius: 50%;
+          width: 0;
+          height: 0;
+        }
+
+        &.place_1, &.place_2, &.place_3, &.place_4 {
+          .ball {
+            box-shadow: 2px 2px 2px rgb(0 0 0 / 70%);
+            width: 100%;
+            height: 100%;
+            animation-name: ball-moving;
+            animation-duration: 500ms;
+            animation-iteration-count: 1;
+          }
+        }
+
+        &.place_1 {
+          .ball {
+            background: #f2d9a0;
+          }
+        }
+
+        &.place_2 {
+          .ball {
+            background: #b1b88c;
+          }
+
+        }
+
+        &.place_3 {
+          .ball {
+            background: #dd6e8c;
+          }
+        }
+
+        &.place_4 {
+          .ball {
+            background: #54877e;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background: #eaeaea;
+  padding: 10px;
+  max-width: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .buttons {
+    display: flex;
+
+    .button {
+      cursor: pointer;
+      padding: 10px 21px;
+      background: #c5b796;
+      width: fit-content;
+      border-radius: 7px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 9px;
+    }
+  }
+
+  .counter {
+    font-size: 34px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: right;
+  }
+}
+
+.game-over-title {
+  position: absolute;
+  top: 90px;
+  left: 232px;
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 5px 5px 8px #00000087;
+}
+
+@keyframes ball-moving {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  35% {
+    width: 150%;
+    height: 150%;
+  }
+
+  70% {
+    width: 80%;
+    height: 80%;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
